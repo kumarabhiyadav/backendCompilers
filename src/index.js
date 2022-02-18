@@ -1,12 +1,10 @@
 import express from "express";
-import { c_lang, python_lang, java_lang } from "./compilers/compilers.js";
+import { c_lang, python_lang, java_lang, javascript_lang } from "./compilers/compilers.js";
 
 const app = express();
 
 app.get("/c", async function (req, res) {
   let data = await c_lang();
-  console.log(data);
-  await setTimeout(() => {}, 2000);
   return res.json({
     result: true,
     data,
@@ -14,8 +12,6 @@ app.get("/c", async function (req, res) {
 });
 app.get("/python", async function (req, res) {
   let data = await python_lang();
-  console.log(data);
-  await setTimeout(() => {}, 2000);
   return res.json({
     result: true,
     data,
@@ -24,8 +20,14 @@ app.get("/python", async function (req, res) {
 
 app.get("/java", async function (req, res) {
   let data = await java_lang();
-  console.log(data);
-  await setTimeout(() => {}, 2000);
+  return res.json({
+    result: true,
+    data,
+  });
+});
+
+app.get("/js", async function (req, res) {
+  let data = await javascript_lang();
   return res.json({
     result: true,
     data,
