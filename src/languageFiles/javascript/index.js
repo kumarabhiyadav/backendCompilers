@@ -1,1 +1,1 @@
-console.log("Hello Im Js")
+function printName(){console.log('This is my name');} printName()

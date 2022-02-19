@@ -1,17 +1,42 @@
 import express from "express";
-import { c_lang, python_lang, java_lang, javascript_lang } from "./compilers/compilers.js";
+import eFileUpload from "express-fileupload";
+import bodyParser from "body-parser";
+import {
+  c_lang,
+  python_lang,
+  java_lang,
+  javascript_lang,
+} from "./compilers/compilers.js";
+import { write_source_code_to_file } from "./utils/fileWriter.js";
 
 const app = express();
+app.use(eFileUpload());
 
-app.get("/c", async function (req, res) {
+app.use(bodyParser.json({ limit: "500mb" }));
+
+app.use(
+  bodyParser.urlencoded({
+    limit: "500mb",
+    extended: true,
+    parameterLimit: 50000,
+  })
+);
+app.post("/c", async function (req, res) {
+  let { source_code } = req.body;
+  console.log(source_code);
+  await write_source_code_to_file(source_code, req.url.replace("/", ""));
   let data = await c_lang();
+
   return res.json({
     result: true,
-    data, 
-
+    data,
   });
-});``
-app.get("/python", async function (req, res) {
+});
+``;
+app.post("/python", async function (req, res) {
+  let { source_code } = req.body;
+
+  await write_source_code_to_file(source_code, req.url.replace("/", ""));
   let data = await python_lang();
   return res.json({
     result: true,
@@ -19,7 +44,10 @@ app.get("/python", async function (req, res) {
   });
 });
 
-app.get("/java", async function (req, res) {
+app.post("/java", async function (req, res) {
+  let { source_code } = req.body;
+  
+  await write_source_code_to_file(source_code, req.url.replace("/", ""));
   let data = await java_lang();
   return res.json({
     result: true,
@@ -27,7 +55,9 @@ app.get("/java", async function (req, res) {
   });
 });
 
-app.get("/js", async function (req, res) {
+app.post("/javascript", async function (req, res) {
+  let { source_code } = req.body;
+  await write_source_code_to_file(source_code, req.url.replace("/", ""));
   let data = await javascript_lang();
   return res.json({
     result: true,

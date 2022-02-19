@@ -1,1 +1,4 @@
-print("Im python")
+def print_name():
+     print('myName') 
+
+print_name()
