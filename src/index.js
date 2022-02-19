@@ -7,9 +7,10 @@ app.get("/c", async function (req, res) {
   let data = await c_lang();
   return res.json({
     result: true,
-    data,
+    data, 
+
   });
-});
+});``
 app.get("/python", async function (req, res) {
   let data = await python_lang();
   return res.json({
