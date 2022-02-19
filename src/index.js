@@ -65,9 +65,9 @@ app.post("/javascript", async function (req, res) {
   });
 });
 
-// app.post("/", (req, res) => {
-//   return res.send("Received a POST HTTP method");
-// });
+app.get("/", (req, res) => {
+  return res.send("code-compiler-server working");
+});
 
 // app.put("/", (req, res) => {
 //   return res.send("Received a PUT HTTP method");
