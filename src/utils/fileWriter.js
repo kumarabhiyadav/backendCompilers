@@ -7,7 +7,7 @@ const filePaths = {
   python: "src/languageFiles/python/main.py",
 };
 async function write_source_code_to_file(source_code, lang) {
-    fs.writeFileSync(filePaths[`${lang}`], source_code, (err) => {
+  fs.writeFileSync(filePaths[lang], source_code, (err) => {
     if (err) {
       console.log(err);
       return;

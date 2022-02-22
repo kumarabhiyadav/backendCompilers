@@ -1,16 +1,13 @@
 import { execPromise } from "../utils/helper.js";
 
-
 const filePathsAndExcuter = {
-  'javascript': 'node src/languageFiles/javascript/index.js',
-  'javac': 'javac src/languageFiles/java/HelloWorld.java',
-  'java': 'java src/languageFiles/java/HelloWorld',
-  'c': 'gcc src/languageFiles/C/main.c -o main',
-  'c-output': 'src/languageFiles/C/main.exe',
-  'python': 'py src/languageFiles/python/main.py'
-}
-
-
+  javascript: "node src/languageFiles/javascript/index.js",
+  javac: "javac src/languageFiles/java/HelloWorld.java",
+  java: "java src/languageFiles/java/HelloWorld",
+  c: "gcc src/languageFiles/C/main.c -o main",
+  "c-output": "src/languageFiles/C/main",
+  python: "py src/languageFiles/python/main.py",
+};
 
 async function c_lang() {
   try {
@@ -35,12 +32,8 @@ async function python_lang() {
   }
 }
 
-
-
-
 async function java_lang() {
   try {
-
     let result = await execPromise(filePathsAndExcuter.javac);
     result = await execPromise(filePathsAndExcuter.javac);
     return result;
@@ -59,4 +52,4 @@ async function javascript_lang() {
 }
 // c_lang();
 
-export { c_lang, python_lang, java_lang, javascript_lang, };
+export { c_lang, python_lang, java_lang, javascript_lang };
