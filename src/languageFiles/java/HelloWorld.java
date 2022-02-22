@@ -1,7 +1,6 @@
-package src.languageFiles.java;
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("IN Java");
-
+public class HelloWorld {
+        public static void main(String[] args) {
+            // Write your code here
+            System.out.println("Hello, Java");
+        }
     }
-}

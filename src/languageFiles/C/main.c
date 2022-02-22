@@ -1,5 +1,15 @@
 #include<stdio.h>
-int main(){
-    printf("Hello, World");
-    return 0;
+
+void myFunction(){
+printf("Hello\n");
 }
+
+
+
+int main(){
+    printf("Hello, World\n");
+
+myFunction();
+    return 0;
+  }
+  

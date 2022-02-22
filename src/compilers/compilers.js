@@ -4,8 +4,8 @@ const filePathsAndExcuter = {
   javascript: "node src/languageFiles/javascript/index.js",
   javac: "javac src/languageFiles/java/HelloWorld.java",
   java: "java src/languageFiles/java/HelloWorld",
-  c: "gcc src/languageFiles/C/main.c -o main",
-  "c-output": "src/languageFiles/C/main",
+  c: "gcc src/languageFiles/C/main.c -o src/languageFiles/C/main",
+  "c-output": ".\\src\\languageFiles\\C\\main",
   python: "py src/languageFiles/python/main.py",
 };
 
@@ -35,7 +35,7 @@ async function python_lang() {
 async function java_lang() {
   try {
     let result = await execPromise(filePathsAndExcuter.javac);
-    result = await execPromise(filePathsAndExcuter.javac);
+    result = await execPromise(filePathsAndExcuter.java);
     return result;
   } catch (error) {
     return error.message;

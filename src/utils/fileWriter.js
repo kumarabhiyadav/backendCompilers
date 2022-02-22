@@ -2,7 +2,7 @@ import fs from "fs";
 
 const filePaths = {
   javascript: "src/languageFiles/javascript/index.js",
-  javac: "src/languageFiles/java/HelloWorld.java",
+  java: "src/languageFiles/java/HelloWorld.java",
   c: "src/languageFiles/C/main.c",
   python: "src/languageFiles/python/main.py",
 };
